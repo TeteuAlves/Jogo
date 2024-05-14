@@ -47,7 +47,7 @@ while rodando:
     tela.blit(FUNDO, (0,0))
 
 #movimentando e aparecendo jogador
-    jogador1.movimenta_via_controle(pygame.K_LEFT, pygame.K_RIGHT)
+    jogador1.movimenta_via_controle(pygame.K_LEFT, pygame.K_RIGHT,pygame.K_SPACE)
     jogador1.apareca(tela)
 
 #movimentando objeto
