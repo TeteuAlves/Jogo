@@ -11,7 +11,7 @@ pygame.display.set_caption("Comilão")
 FUNDO = pygame.image.load("Imagens/Fundo_do_mar.png")
 FUNDO = pygame.transform.scale(FUNDO,(900, 700))
 
-jogador1 = Jogador("Imagens/peixe.png",50,50,0,650 )
+jogador1 = Jogador("Imagens/peixe.png",100,100,400,600 )
 
 clock = pygame.time.Clock()
 
@@ -21,10 +21,10 @@ while rodando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             rodando = False
-            
+
     tela.blit(FUNDO, (0,0))
 
-    jogador1.movimenta_via_controle(pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT)
+    jogador1.movimenta_via_controle(pygame.K_LEFT, pygame.K_RIGHT)
     jogador1.apareca(tela)
 
     pygame.display.update()
