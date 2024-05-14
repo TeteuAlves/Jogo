@@ -26,11 +26,14 @@ lista_objeto_ruins = [Buff("imagens/anzol.png",75,75,0),
                         Buff("imagens/anzol.png",75,75,0)]
 
 fonte = pygame.font.SysFont("Arial", 50)
-
+perder = pygame.font.SysFont("Arial", 50)
+ganhar = pygame.font.SysFont("Arial", 50)
 #pontuação
 pontuação_personagem = 0
 
 pontuação_vida = 3
+
+
 #configurar FPS
 clock = pygame.time.Clock()
 
@@ -54,7 +57,12 @@ while rodando:
         if jogador1.mascara.overlap(obstaculos.mascara,(obstaculos.pos_x - jogador1.pos_x, obstaculos.pos_y - jogador1.pos_y )):
             pontuação_personagem = pontuação_personagem + 1
             obstaculos.pos_y = 700
-            break
+            if pontuação_personagem == 0:
+                ganhar = fonte.render(f"PARABÉNSS!!", False,(255,0,0))
+                tela.blit(perder,(300,300))
+                pygame.display.update()
+                pygame.time.wait(2000)
+                rodando = False
 
     for ruim in lista_objeto_ruins:
         ruim.movimenta()
@@ -63,7 +71,12 @@ while rodando:
             pontuação_vida = pontuação_vida - 1
             ruim.pos_y = 700
             if pontuação_vida == 0:
+                perder = fonte.render(f"VOCÊ PERDEU!!", False,(255,0,0))
+                tela.blit(perder,(300,300))
+                pygame.display.update()
+                pygame.time.wait(2000)
                 rodando = False
+
 #contagem
     texto_pontos = fonte.render(f"Pontuação:{pontuação_personagem} ", False,(255,0,0))
 
@@ -77,4 +90,3 @@ while rodando:
     #REGULAR O FPS
     clock.tick(60)
 
-print("Você perdeu!!!")
