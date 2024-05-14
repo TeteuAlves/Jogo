@@ -15,3 +15,6 @@ class Obstaculo:
         self.velocidade = random.randint(10,15)
 
         self.mascara = pygame.mask.from_surface(self.imagem)
+
+    def apareca(self, tela):
+        tela.blit(self.imagem, (self.pos_x, self.pos_y))
