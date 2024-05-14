@@ -18,9 +18,9 @@ class Obstaculo:
 
     def apareca(self, tela):
         tela.blit(self.imagem, (self.pos_x, self.pos_y))
-        
+
     def movimenta(self):
-        self.pos_x = self.pos_x - self.velocidade
-        if self.pos_x <= -100:
-            self.pos_x = 900
+        self.pos_y = self.pos_y + self.velocidade
+        if self.pos_y >= 600:
+            self.pos_y = 10
             self.velocidade = random.randint(10,15)
