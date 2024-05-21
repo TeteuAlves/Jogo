@@ -19,7 +19,8 @@ jogador1 = Jogador("Imagens/peixe.png",100,100,400,600 )
 lista_objeto_bonus = [Obstaculo("imagens/salsicha.png",75,75,0),
                     Obstaculo("imagens/Ração.png",75,75,0),
                     Obstaculo("imagens/salsicha.png",75,75,0),
-                    Obstaculo("imagens/Ração.png",75,75,0)]
+                    Obstaculo("imagens/Ração.png",75,75,0),
+                    Obstaculo("imagens/salsicha.png",75,75,0)]
 
 lista_objeto_ruins = [Buff("imagens/anzol.png",75,75,0),
                         Buff("imagens/anzol.png",75,75,0),
@@ -57,9 +58,9 @@ while rodando:
         if jogador1.mascara.overlap(obstaculos.mascara,(obstaculos.pos_x - jogador1.pos_x, obstaculos.pos_y - jogador1.pos_y )):
             pontuação_personagem = pontuação_personagem + 1
             obstaculos.pos_y = 700
-            if pontuação_personagem == 0:
-                ganhar = fonte.render(f"PARABÉNSS!!", False,(255,0,0))
-                tela.blit(perder,(300,300))
+            if pontuação_personagem == 10:
+                ganhar = fonte.render(f"VOCÊ GANHOU!!", False,(255,0,0))
+                tela.blit(ganhar,(300,300))
                 pygame.display.update()
                 pygame.time.wait(2000)
                 rodando = False
