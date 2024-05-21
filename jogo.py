@@ -29,12 +29,13 @@ lista_objeto_ruins = [Buff("imagens/anzol.png",75,75,0),
 fonte = pygame.font.SysFont("Arial", 50)
 perder = pygame.font.SysFont("Arial", 50)
 ganhar = pygame.font.SysFont("Arial", 50)
+comeca =  pygame.font.SysFont("Arial", 50)
 #pontuação
 pontuação_personagem = 0
 
 pontuação_vida = 3
 
-
+tempo = 0
 #configurar FPS
 clock = pygame.time.Clock()
 
@@ -44,6 +45,43 @@ while rodando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             rodando = False
+
+    tela.blit(FUNDO, (0,0))
+    if tempo == 0:
+                comeca = fonte.render(f"Vai começar em..!!", False,(255,0,0))
+                tela.blit(comeca,(300,300))
+                pygame.display.update()
+                pygame.time.wait(2000)
+
+    tempo = tempo + 1
+
+    tela.blit(FUNDO, (0,0))
+
+    if tempo == 1:
+                comeca = fonte.render(f"3", False,(255,0,0))
+                tela.blit(comeca,(450,300))
+                pygame.display.update()
+                pygame.time.wait(2000)
+
+    tempo = tempo + 1
+
+    tela.blit(FUNDO, (0,0))
+
+    if tempo == 2:
+                comeca = fonte.render(f"2", False,(255,0,0))
+                tela.blit(comeca,(450,300))
+                pygame.display.update()
+                pygame.time.wait(2000)
+    
+    tempo = tempo + 1
+
+    tela.blit(FUNDO, (0,0))
+
+    if tempo == 3:
+                comeca = fonte.render(f"1", False,(255,0,0))
+                tela.blit(comeca,(450,300))
+                pygame.display.update()
+                pygame.time.wait(2000)
 
     tela.blit(FUNDO, (0,0))
 
@@ -89,5 +127,4 @@ while rodando:
     pygame.display.update()
 
     #REGULAR O FPS
-    clock.tick(60)
-
+    clock.tick(70)
